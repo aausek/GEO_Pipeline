@@ -29,7 +29,7 @@ def pullurl(acc, targ, view, form):
     extension = '.txt'
     filename = acc + extension
     # File and path name
-    filePath = os.path.join(path, filePath)
+    filePath = os.path.join(path, filename)
     r = urllib.request.urlretrieve(rURL, filePath)
     # head -10 filename.txt to display last 10 lines
 
