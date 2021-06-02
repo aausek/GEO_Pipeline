@@ -4,20 +4,27 @@
 # Import libraries
 import urllib.request, os, time
 
+# main()
+def main():
+    inputMenu()
+    
 # Prompt user for input on URL parameters
 def inputMenu():
     print('Enter search query')
-    acc = input('Enter acc component (gplxxx, gsmxxx or gsexxx):')
-    targ = input('Enter targ component value (self, gsm, gpl, gse or all ):')
-    view = input('Enter view component (brief, quick, data or full):')
+    acc = input('Enter acc component (gplxxx, gsmxxx or gsexxx): ')
+    targ = input('Enter targ component value (self, gsm, gpl, gse or all ): ')
+    view = input('Enter view component (brief, quick, data or full): ')
     form = input('Enter form component (text, html or xml): ')
+    pullurl(acc, targ, view, form)
 
 # Funtion to access URL and download file
-def pullurl():
+def pullurl(acc, targ, view, form):
     # GEO request URL
     rootURL = 'https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?'
-    # acc = ''
-    # targ = 'self'
-    # view = 'full'
-    # form = 'text'
-    
+    rURL = rootURL + 'acc=' + acc + '&targ=' + targ + '&view=' + view + '&form=' + form
+    fileName = acc + '.txt'
+    r = urllib.request.urlretrieve(rURL, fileName)
+    print(rURL)
+
+# Call main()
+main()    
