@@ -2,7 +2,7 @@
 # Import NCBI data from GEO - Gene Expression Omnibus
 
 # Import libraries
-import urllib.request, os, time
+import urllib.request, os
 
 # main()
 def main():
