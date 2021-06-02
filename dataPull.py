@@ -22,7 +22,10 @@ def pullurl(acc, targ, view, form):
     # GEO request URL
     rootURL = 'https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?'
     rURL = rootURL + 'acc=' + acc + '&targ=' + targ + '&view=' + view + '&form=' + form
-    fileName = acc + '.txt'
+    path = 'output/'
+    extension = '.txt'
+    filename = acc + extension
+    fileName = os.path.join(path, filename)
     r = urllib.request.urlretrieve(rURL, fileName)
     print(rURL)
 
