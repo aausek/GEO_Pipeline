@@ -12,7 +12,7 @@ def main():
 def inputMenu():
     print('Enter search query')
     acc = input('Enter acc component (gplxxx, gsmxxx or gsexxx): ')
-    targ = input('Enter targ component value (self, gsm, gpl, gse or all ): ')
+    targ = input('Enter targ component value (self, gsm, gpl, gse or all): ')
     view = input('Enter view component (brief, quick, data or full): ')
     form = input('Enter form component (text, html or xml): ')
     pullurl(acc, targ, view, form)
@@ -21,13 +21,17 @@ def inputMenu():
 def pullurl(acc, targ, view, form):
     # GEO request URL
     rootURL = 'https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?'
+    # Construct request URL with input parameters
     rURL = rootURL + 'acc=' + acc + '&targ=' + targ + '&view=' + view + '&form=' + form
+    print(rURL)
+    # New output file path name
     path = 'output/'
     extension = '.txt'
     filename = acc + extension
-    fileName = os.path.join(path, filename)
-    r = urllib.request.urlretrieve(rURL, fileName)
-    print(rURL)
+    # File and path name
+    filePath = os.path.join(path, filePath)
+    r = urllib.request.urlretrieve(rURL, filePath)
+    # head -10 filename.txt to display last 10 lines
 
 # Call main()
 main()    
