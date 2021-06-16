@@ -15,8 +15,9 @@ def inputMenu():
     targ = input('Enter targ component value (self, gsm, gpl, gse or all): ')
     view = input('Enter view component (brief, quick, data or full): ')
     form = input('Enter form component (text, html or xml): ')
-    if input() == 'exit':
-        sys.exit()
+    exitApp = input('Exit? Y/N: ')
+    if exitApp == 'Y':
+        exit(0)
     else:
         pullurl(acc, targ, view, form)
 
@@ -30,7 +31,7 @@ def pullurl(acc, targ, view, form):
     # New output file path name
     path = 'output/'
     extension = '.txt'
-    filename = acc + extension
+    filename = acc + '_' + targ + '_' + view + '_' + form + '_'+ extension
     # File and path name
     filePath = os.path.join(path, filename)
     r = urllib.request.urlretrieve(rURL, filePath)
