@@ -1,0 +1,579 @@
+{
+    "aggregate_by": "EXPERIMENT",
+    "created_at": "2021-06-02T02:44:55",
+    "experiments": {
+        "GSE37219": {
+            "accession_code": "GSE37219",
+            "description": "Genetic deletion of Nfatc1 in mice results in profound osteoclast-poor osteopetrosis, a high bone mass state caused by a lack of osteoclast activity.  We hypothesized that the family of NFATc1 regulated transcripts in the osteoclast would be enriched for genes associated with osteoclast function. We used microarrays profile gene expression in wild-type and NFATc1-deficient osteoclasts generated in vitro to identify NFATc1-dependent transcripts in osteoclasts.",
+            "has_publication": false,
+            "organisms": [
+                "MUS_MUSCULUS"
+            ],
+            "protocol_description": {},
+            "publication_doi": "",
+            "publication_title": "NFATc1 in mice represses osteoprotegerin during osteoclastogenesis and dissociates systemic osteopenia from inflammation in cherubism.",
+            "pubmed_id": "18846253",
+            "sample_accession_codes": [
+                "GSM913973",
+                "GSM913975",
+                "GSM913972",
+                "GSM913974"
+            ],
+            "source_first_published": "2012-04-12T00:00:00",
+            "source_last_modified": "",
+            "submitter_institution": "Brigham and Women's Hospital",
+            "technology": "MICROARRAY",
+            "title": "Comparison expression data from wild-type and NFATc1-deficient osteoclasts"
+        }
+    },
+    "ks_pvalue": null,
+    "ks_statistic": null,
+    "ks_warning": null,
+    "num_experiments": 1,
+    "num_samples": 4,
+    "quant_sf_only": false,
+    "quantile_normalized": true,
+    "samples": {
+        "GSM913972": {
+            "refinebio_accession_code": "GSM913972",
+            "refinebio_age": "",
+            "refinebio_annotations": [
+                {
+                    "channel_count": [
+                        "1"
+                    ],
+                    "characteristics_ch1": [
+                        "cell type: bone marrow macrophage derived osteoclasts",
+                        "strain: C57BL/6",
+                        "genotype: NFATc1 fl/fl MxCre-"
+                    ],
+                    "contact_address": [
+                        "75 Francis Street, Smith Building 6th floor"
+                    ],
+                    "contact_city": [
+                        "Boston"
+                    ],
+                    "contact_country": [
+                        "USA"
+                    ],
+                    "contact_department": [
+                        "Division of Rheumatology, Immunology and Allergy"
+                    ],
+                    "contact_email": [
+                        "jfcharles@partners.org"
+                    ],
+                    "contact_institute": [
+                        "Brigham and Women's Hospital"
+                    ],
+                    "contact_laboratory": [
+                        "Antonios O. Aliprantis Lab"
+                    ],
+                    "contact_name": [
+                        "Julia,F.,Charles"
+                    ],
+                    "contact_state": [
+                        "MA"
+                    ],
+                    "contact_zip/postal_code": [
+                        "02115"
+                    ],
+                    "data_processing": [
+                        "The data were analyzed with Microarray Suite version 5.0 (MAS 5.0) using Affymetrix default analysis settings and global scaling as normalization method. The trimmed mean target intensity of each array was arbitrarily set to 500."
+                    ],
+                    "data_row_count": [
+                        "22690"
+                    ],
+                    "description": [
+                        "gene expression data in osteoclast cultures"
+                    ],
+                    "extract_protocol_ch1": [
+                        "RNAeasy extraction of total RNA was performed according to the manufacturer's instructions."
+                    ],
+                    "geo_accession": [
+                        "GSM913972"
+                    ],
+                    "growth_protocol_ch1": [
+                        "Osteoclast precursors were purified from whole bone marrow of n=3 mice (replicate 1) or n=4 mice (replicate 2) by flow cytometric sorting for CD11b- CD3e- B220- ckit+cfms+ cell s and plated at 20,000/24well plate in alpha-meM with mCSF and RANKL."
+                    ],
+                    "hyb_protocol": [
+                        "Following fragmentation, 10 ug of cRNA were hybridized for 16 hr at 45C on GeneChip Drosophila Genome Array. GeneChips were washed and stained in the Affymetrix Fluidics Station 400."
+                    ],
+                    "label_ch1": [
+                        "biotin"
+                    ],
+                    "label_protocol_ch1": [
+                        "Biotinylated cRNA were prepared according to the standard Affymetrix protocol (Expression Analysis Technical Manual, 2001, Affymetrix)."
+                    ],
+                    "last_update_date": [
+                        "Aug 19 2012"
+                    ],
+                    "molecule_ch1": [
+                        "total RNA"
+                    ],
+                    "organism_ch1": [
+                        "Mus musculus"
+                    ],
+                    "platform_id": [
+                        "GPL8321"
+                    ],
+                    "scan_protocol": [
+                        "GeneChips were scanned using the Hewlett-Packard GeneArray Scanner G2500A."
+                    ],
+                    "series_id": [
+                        "GSE37219"
+                    ],
+                    "source_name_ch1": [
+                        "mouse osteoclast culture, day 3 MCSF/RANKL"
+                    ],
+                    "status": [
+                        "Public on Aug 18 2012"
+                    ],
+                    "submission_date": [
+                        "Apr 12 2012"
+                    ],
+                    "supplementary_file": [
+                        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM913nnn/GSM913972/suppl/GSM913972_WT1.CEL.gz"
+                    ],
+                    "taxid_ch1": [
+                        "10090"
+                    ],
+                    "title": [
+                        "wild-type osteoclasts rep1"
+                    ],
+                    "treatment_protocol_ch1": [
+                        "Osteoclat precursor cultures were cultured in the presence of MCSF and RANKL for 3 days to generate early osteoclasts."
+                    ],
+                    "type": [
+                        "RNA"
+                    ]
+                }
+            ],
+            "refinebio_cell_line": "",
+            "refinebio_compound": "",
+            "refinebio_disease": "",
+            "refinebio_disease_stage": "",
+            "refinebio_genetic_information": "",
+            "refinebio_organism": "MUS_MUSCULUS",
+            "refinebio_platform": "Affymetrix Mouse Genome 430A 2.0 Array (mouse430a2)",
+            "refinebio_processed": true,
+            "refinebio_processor_id": 95,
+            "refinebio_processor_name": "Affymetrix SCAN",
+            "refinebio_processor_version": "v1.4.6",
+            "refinebio_race": "",
+            "refinebio_sex": "",
+            "refinebio_source_archive_url": "",
+            "refinebio_source_database": "GEO",
+            "refinebio_specimen_part": "bone marrow macrophage derived osteoclasts",
+            "refinebio_subject": "",
+            "refinebio_time": "",
+            "refinebio_title": "wild-type osteoclasts rep1",
+            "refinebio_treatment": ""
+        },
+        "GSM913973": {
+            "refinebio_accession_code": "GSM913973",
+            "refinebio_age": "",
+            "refinebio_annotations": [
+                {
+                    "channel_count": [
+                        "1"
+                    ],
+                    "characteristics_ch1": [
+                        "cell type: bone marrow macrophage derived osteoclasts",
+                        "strain: C57BL/6",
+                        "genotype: NFATc1 fl/fl MxCre-"
+                    ],
+                    "contact_address": [
+                        "75 Francis Street, Smith Building 6th floor"
+                    ],
+                    "contact_city": [
+                        "Boston"
+                    ],
+                    "contact_country": [
+                        "USA"
+                    ],
+                    "contact_department": [
+                        "Division of Rheumatology, Immunology and Allergy"
+                    ],
+                    "contact_email": [
+                        "jfcharles@partners.org"
+                    ],
+                    "contact_institute": [
+                        "Brigham and Women's Hospital"
+                    ],
+                    "contact_laboratory": [
+                        "Antonios O. Aliprantis Lab"
+                    ],
+                    "contact_name": [
+                        "Julia,F.,Charles"
+                    ],
+                    "contact_state": [
+                        "MA"
+                    ],
+                    "contact_zip/postal_code": [
+                        "02115"
+                    ],
+                    "data_processing": [
+                        "The data were analyzed with Microarray Suite version 5.0 (MAS 5.0) using Affymetrix default analysis settings and global scaling as normalization method. The trimmed mean target intensity of each array was arbitrarily set to 500."
+                    ],
+                    "data_row_count": [
+                        "22690"
+                    ],
+                    "description": [
+                        "gene expression data in osteoclast cultures"
+                    ],
+                    "extract_protocol_ch1": [
+                        "RNAeasy extraction of total RNA was performed according to the manufacturer's instructions."
+                    ],
+                    "geo_accession": [
+                        "GSM913973"
+                    ],
+                    "growth_protocol_ch1": [
+                        "Osteoclast precursors were purified from whole bone marrow of n=3 mice (replicate 1) or n=4 mice (replicate 2) by flow cytometric sorting for CD11b- CD3e- B220- ckit+cfms+ cell s and plated at 20,000/24well plate in alpha-meM with mCSF and RANKL."
+                    ],
+                    "hyb_protocol": [
+                        "Following fragmentation, 10 ug of cRNA were hybridized for 16 hr at 45C on GeneChip Drosophila Genome Array. GeneChips were washed and stained in the Affymetrix Fluidics Station 400."
+                    ],
+                    "label_ch1": [
+                        "biotin"
+                    ],
+                    "label_protocol_ch1": [
+                        "Biotinylated cRNA were prepared according to the standard Affymetrix protocol (Expression Analysis Technical Manual, 2001, Affymetrix)."
+                    ],
+                    "last_update_date": [
+                        "Aug 19 2012"
+                    ],
+                    "molecule_ch1": [
+                        "total RNA"
+                    ],
+                    "organism_ch1": [
+                        "Mus musculus"
+                    ],
+                    "platform_id": [
+                        "GPL8321"
+                    ],
+                    "scan_protocol": [
+                        "GeneChips were scanned using the Hewlett-Packard GeneArray Scanner G2500A."
+                    ],
+                    "series_id": [
+                        "GSE37219"
+                    ],
+                    "source_name_ch1": [
+                        "mouse osteoclast culture, day 3 MCSF/RANKL"
+                    ],
+                    "status": [
+                        "Public on Aug 18 2012"
+                    ],
+                    "submission_date": [
+                        "Apr 12 2012"
+                    ],
+                    "supplementary_file": [
+                        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM913nnn/GSM913973/suppl/GSM913973_WT2.CEL.gz"
+                    ],
+                    "taxid_ch1": [
+                        "10090"
+                    ],
+                    "title": [
+                        "wild-type osteoclasts rep2"
+                    ],
+                    "treatment_protocol_ch1": [
+                        "Osteoclat precursor cultures were cultured in the presence of MCSF and RANKL for 3 days to generate early osteoclasts."
+                    ],
+                    "type": [
+                        "RNA"
+                    ]
+                }
+            ],
+            "refinebio_cell_line": "",
+            "refinebio_compound": "",
+            "refinebio_disease": "",
+            "refinebio_disease_stage": "",
+            "refinebio_genetic_information": "",
+            "refinebio_organism": "MUS_MUSCULUS",
+            "refinebio_platform": "Affymetrix Mouse Genome 430A 2.0 Array (mouse430a2)",
+            "refinebio_processed": true,
+            "refinebio_processor_id": 95,
+            "refinebio_processor_name": "Affymetrix SCAN",
+            "refinebio_processor_version": "v1.4.6",
+            "refinebio_race": "",
+            "refinebio_sex": "",
+            "refinebio_source_archive_url": "",
+            "refinebio_source_database": "GEO",
+            "refinebio_specimen_part": "bone marrow macrophage derived osteoclasts",
+            "refinebio_subject": "",
+            "refinebio_time": "",
+            "refinebio_title": "wild-type osteoclasts rep2",
+            "refinebio_treatment": ""
+        },
+        "GSM913974": {
+            "refinebio_accession_code": "GSM913974",
+            "refinebio_age": "",
+            "refinebio_annotations": [
+                {
+                    "channel_count": [
+                        "1"
+                    ],
+                    "characteristics_ch1": [
+                        "cell type: bone marrow macrophage derived osteoclasts",
+                        "strain: C57BL/6",
+                        "genotype: NFATc1 fl/fl MxCre+"
+                    ],
+                    "contact_address": [
+                        "75 Francis Street, Smith Building 6th floor"
+                    ],
+                    "contact_city": [
+                        "Boston"
+                    ],
+                    "contact_country": [
+                        "USA"
+                    ],
+                    "contact_department": [
+                        "Division of Rheumatology, Immunology and Allergy"
+                    ],
+                    "contact_email": [
+                        "jfcharles@partners.org"
+                    ],
+                    "contact_institute": [
+                        "Brigham and Women's Hospital"
+                    ],
+                    "contact_laboratory": [
+                        "Antonios O. Aliprantis Lab"
+                    ],
+                    "contact_name": [
+                        "Julia,F.,Charles"
+                    ],
+                    "contact_state": [
+                        "MA"
+                    ],
+                    "contact_zip/postal_code": [
+                        "02115"
+                    ],
+                    "data_processing": [
+                        "The data were analyzed with Microarray Suite version 5.0 (MAS 5.0) using Affymetrix default analysis settings and global scaling as normalization method. The trimmed mean target intensity of each array was arbitrarily set to 500."
+                    ],
+                    "data_row_count": [
+                        "22690"
+                    ],
+                    "description": [
+                        "gene expression data in osteoclast cultures"
+                    ],
+                    "extract_protocol_ch1": [
+                        "RNAeasy extraction of total RNA was performed according to the manufacturer's instructions."
+                    ],
+                    "geo_accession": [
+                        "GSM913974"
+                    ],
+                    "growth_protocol_ch1": [
+                        "Osteoclast precursors were purified from whole bone marrow of n=3 mice (replicate 1) or n=4 mice (replicate 2) by flow cytometric sorting for CD11b- CD3e- B220- ckit+cfms+ cell s and plated at 20,000/24well plate in alpha-meM with mCSF and RANKL."
+                    ],
+                    "hyb_protocol": [
+                        "Following fragmentation, 10 ug of cRNA were hybridized for 16 hr at 45C on GeneChip Drosophila Genome Array. GeneChips were washed and stained in the Affymetrix Fluidics Station 400."
+                    ],
+                    "label_ch1": [
+                        "biotin"
+                    ],
+                    "label_protocol_ch1": [
+                        "Biotinylated cRNA were prepared according to the standard Affymetrix protocol (Expression Analysis Technical Manual, 2001, Affymetrix)."
+                    ],
+                    "last_update_date": [
+                        "Aug 19 2012"
+                    ],
+                    "molecule_ch1": [
+                        "total RNA"
+                    ],
+                    "organism_ch1": [
+                        "Mus musculus"
+                    ],
+                    "platform_id": [
+                        "GPL8321"
+                    ],
+                    "scan_protocol": [
+                        "GeneChips were scanned using the Hewlett-Packard GeneArray Scanner G2500A."
+                    ],
+                    "series_id": [
+                        "GSE37219"
+                    ],
+                    "source_name_ch1": [
+                        "mouse osteoclast culture, day 3 MCSF/RANKL"
+                    ],
+                    "status": [
+                        "Public on Aug 18 2012"
+                    ],
+                    "submission_date": [
+                        "Apr 12 2012"
+                    ],
+                    "supplementary_file": [
+                        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM913nnn/GSM913974/suppl/GSM913974_NFATc1_KO1.CEL.gz"
+                    ],
+                    "taxid_ch1": [
+                        "10090"
+                    ],
+                    "title": [
+                        "NFATc1-deficient osteoclasts rep1"
+                    ],
+                    "treatment_protocol_ch1": [
+                        "Osteoclat precursor cultures were cultured in the presence of MCSF and RANKL for 3 days to generate early osteoclasts."
+                    ],
+                    "type": [
+                        "RNA"
+                    ]
+                }
+            ],
+            "refinebio_cell_line": "",
+            "refinebio_compound": "",
+            "refinebio_disease": "",
+            "refinebio_disease_stage": "",
+            "refinebio_genetic_information": "",
+            "refinebio_organism": "MUS_MUSCULUS",
+            "refinebio_platform": "Affymetrix Mouse Genome 430A 2.0 Array (mouse430a2)",
+            "refinebio_processed": true,
+            "refinebio_processor_id": 95,
+            "refinebio_processor_name": "Affymetrix SCAN",
+            "refinebio_processor_version": "v1.4.6",
+            "refinebio_race": "",
+            "refinebio_sex": "",
+            "refinebio_source_archive_url": "",
+            "refinebio_source_database": "GEO",
+            "refinebio_specimen_part": "bone marrow macrophage derived osteoclasts",
+            "refinebio_subject": "",
+            "refinebio_time": "",
+            "refinebio_title": "NFATc1-deficient osteoclasts rep1",
+            "refinebio_treatment": ""
+        },
+        "GSM913975": {
+            "refinebio_accession_code": "GSM913975",
+            "refinebio_age": "",
+            "refinebio_annotations": [
+                {
+                    "channel_count": [
+                        "1"
+                    ],
+                    "characteristics_ch1": [
+                        "cell type: bone marrow macrophage derived osteoclasts",
+                        "strain: C57BL/6",
+                        "genotype: NFATc1 fl/fl MxCre+"
+                    ],
+                    "contact_address": [
+                        "75 Francis Street, Smith Building 6th floor"
+                    ],
+                    "contact_city": [
+                        "Boston"
+                    ],
+                    "contact_country": [
+                        "USA"
+                    ],
+                    "contact_department": [
+                        "Division of Rheumatology, Immunology and Allergy"
+                    ],
+                    "contact_email": [
+                        "jfcharles@partners.org"
+                    ],
+                    "contact_institute": [
+                        "Brigham and Women's Hospital"
+                    ],
+                    "contact_laboratory": [
+                        "Antonios O. Aliprantis Lab"
+                    ],
+                    "contact_name": [
+                        "Julia,F.,Charles"
+                    ],
+                    "contact_state": [
+                        "MA"
+                    ],
+                    "contact_zip/postal_code": [
+                        "02115"
+                    ],
+                    "data_processing": [
+                        "The data were analyzed with Microarray Suite version 5.0 (MAS 5.0) using Affymetrix default analysis settings and global scaling as normalization method. The trimmed mean target intensity of each array was arbitrarily set to 500."
+                    ],
+                    "data_row_count": [
+                        "22690"
+                    ],
+                    "description": [
+                        "gene expression data in osteoclast cultures"
+                    ],
+                    "extract_protocol_ch1": [
+                        "RNAeasy extraction of total RNA was performed according to the manufacturer's instructions."
+                    ],
+                    "geo_accession": [
+                        "GSM913975"
+                    ],
+                    "growth_protocol_ch1": [
+                        "Osteoclast precursors were purified from whole bone marrow of n=3 mice (replicate 1) or n=4 mice (replicate 2) by flow cytometric sorting for CD11b- CD3e- B220- ckit+cfms+ cell s and plated at 20,000/24well plate in alpha-meM with mCSF and RANKL."
+                    ],
+                    "hyb_protocol": [
+                        "Following fragmentation, 10 ug of cRNA were hybridized for 16 hr at 45C on GeneChip Drosophila Genome Array. GeneChips were washed and stained in the Affymetrix Fluidics Station 400."
+                    ],
+                    "label_ch1": [
+                        "biotin"
+                    ],
+                    "label_protocol_ch1": [
+                        "Biotinylated cRNA were prepared according to the standard Affymetrix protocol (Expression Analysis Technical Manual, 2001, Affymetrix)."
+                    ],
+                    "last_update_date": [
+                        "Aug 19 2012"
+                    ],
+                    "molecule_ch1": [
+                        "total RNA"
+                    ],
+                    "organism_ch1": [
+                        "Mus musculus"
+                    ],
+                    "platform_id": [
+                        "GPL8321"
+                    ],
+                    "scan_protocol": [
+                        "GeneChips were scanned using the Hewlett-Packard GeneArray Scanner G2500A."
+                    ],
+                    "series_id": [
+                        "GSE37219"
+                    ],
+                    "source_name_ch1": [
+                        "mouse osteoclast culture, day 3 MCSF/RANKL"
+                    ],
+                    "status": [
+                        "Public on Aug 18 2012"
+                    ],
+                    "submission_date": [
+                        "Apr 12 2012"
+                    ],
+                    "supplementary_file": [
+                        "ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM913nnn/GSM913975/suppl/GSM913975_NFATc1_KO2.CEL.gz"
+                    ],
+                    "taxid_ch1": [
+                        "10090"
+                    ],
+                    "title": [
+                        "NFATc1-deficient osteoclasts rep2"
+                    ],
+                    "treatment_protocol_ch1": [
+                        "Osteoclat precursor cultures were cultured in the presence of MCSF and RANKL for 3 days to generate early osteoclasts."
+                    ],
+                    "type": [
+                        "RNA"
+                    ]
+                }
+            ],
+            "refinebio_cell_line": "",
+            "refinebio_compound": "",
+            "refinebio_disease": "",
+            "refinebio_disease_stage": "",
+            "refinebio_genetic_information": "",
+            "refinebio_organism": "MUS_MUSCULUS",
+            "refinebio_platform": "Affymetrix Mouse Genome 430A 2.0 Array (mouse430a2)",
+            "refinebio_processed": true,
+            "refinebio_processor_id": 95,
+            "refinebio_processor_name": "Affymetrix SCAN",
+            "refinebio_processor_version": "v1.4.6",
+            "refinebio_race": "",
+            "refinebio_sex": "",
+            "refinebio_source_archive_url": "",
+            "refinebio_source_database": "GEO",
+            "refinebio_specimen_part": "bone marrow macrophage derived osteoclasts",
+            "refinebio_subject": "",
+            "refinebio_time": "",
+            "refinebio_title": "NFATc1-deficient osteoclasts rep2",
+            "refinebio_treatment": ""
+        }
+    },
+    "scale_by": "NONE"
+}
