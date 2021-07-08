@@ -9,3 +9,4 @@
 
 - Segmenting sample output into individual sample files
 - Pair probe IDs with manufacturer's product data to identify gene
+- Recreating code in HiperGator Cluster
