@@ -93,18 +93,6 @@ def pullUrl(acc, targ, view, form):
 
 
 def splitFiles(filepath, subfolder, extension):
-    # token = '^SAMPLE'
-    # chunks = []
-    # current_chunk = []
-    #
-    # for line in open(filepath):
-    #     if line.startswith(token) and current_chunk:
-    #         chunks.append(current_chunk[:])
-    #         current_chunk = []
-    #     current_chunk.append(line)
-    #
-    # chunks.append(current_chunk)
-    # print(chunks)
 
     with open(filepath, mode="r") as bigfile:
         reader = bigfile.read()
@@ -112,7 +100,7 @@ def splitFiles(filepath, subfolder, extension):
         for i, part in enumerate(reader.split(token)[1:]):
             with open(subfolder + "/Sample_" + str(i + 1) + extension, mode="w") as newfile:
                 newfile.write(token + part)
-    
+
     # Keep or remove original file?
     os.remove(filepath)
 
