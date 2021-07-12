@@ -72,12 +72,12 @@ def pullUrl(acc, targ, view, form):
 
     # Create subfolders to drop gsm or gpl outputs
 
-    # if os.path.isdir(path) or os.path.isdir(subfolder):
-    #     os.mkdir(path + '-' + iterations)
-    #     os.mkdir(subfolder + '-' + iterations)
-    # else:
-    os.mkdir(path)
-    os.mkdir(subfolder)
+    if os.path.isdir(path):
+        # os.mkdir(path + '-' + iterations)
+        os.mkdir(subfolder)
+    else:
+        os.mkdir(path)
+        os.mkdir(subfolder)
 
     extension = '.txt'
     filename = acc + '_' + targ + '_' + view + '_' + form + '_' + date + extension
