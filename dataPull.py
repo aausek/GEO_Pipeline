@@ -75,6 +75,8 @@ def pullUrl(acc, targ, view, form):
     if os.path.isdir(path):
         # os.mkdir(path + '-' + iterations)
         os.mkdir(subfolder)
+    # elif os.path.isdir(subfolder):
+        
     else:
         os.mkdir(path)
         os.mkdir(subfolder)
@@ -94,12 +96,12 @@ def pullUrl(acc, targ, view, form):
 
 def splitFiles(filepath, subfolder, extension):
 
-    with open(filepath, mode="r") as bigfile:
-        reader = bigfile.read()
+    with open(filepath, mode="r") as original_file:
+        reader = original_file.read()
         token = '^SAMPLE'
         for i, part in enumerate(reader.split(token)[1:]):
-            with open(subfolder + "/Sample_" + str(i + 1) + extension, mode="w") as newfile:
-                newfile.write(token + part)
+            with open(subfolder + "/Sample_" + str(i + 1) + extension, mode="w") as sample_file:
+                sample_file.write(token + part)
 
     # Keep or remove original file?
     os.remove(filepath)
