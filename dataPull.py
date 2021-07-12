@@ -9,6 +9,7 @@ from _datetime import datetime
 
 # Test with --> GSE37219 & GPL8321
 
+
 def banner():
     print('''
          ██████╗ ███████╗ ██████╗         ██████╗ ██╗██████╗ ███████╗██╗     ██╗███╗   ██╗███████╗
@@ -83,25 +84,37 @@ def pullUrl(acc, targ, view, form):
 
     # File and path name
     filepath = os.path.join(subfolder, filename)
-    r = urllib.request.urlretrieve(request, filepath)
+    urllib.request.urlretrieve(request, filepath)
     # head -10 filename.txt to display last 10 lines
 
     # full_path = os.path.join(path, filename)
-    splitFiles(filepath)
+    if targ == 'gsm':
+        splitFiles(filepath, subfolder, extension)
 
 
-def splitFiles(full_path):
-    token = '^SAMPLE'
-    chunks = []
-    current_chunk = []
+def splitFiles(filepath, subfolder, extension):
+    # token = '^SAMPLE'
+    # chunks = []
+    # current_chunk = []
+    #
+    # for line in open(filepath):
+    #     if line.startswith(token) and current_chunk:
+    #         chunks.append(current_chunk[:])
+    #         current_chunk = []
+    #     current_chunk.append(line)
+    #
+    # chunks.append(current_chunk)
+    # print(chunks)
 
-    for line in open(full_path):
-        if line.startswith(token) and current_chunk:
-            chunks.append(current_chunk[:])
-            current_chunk = []
-        current_chunk.append(line)
-
-    chunks.append(current_chunk)
+    with open(filepath, mode="r") as bigfile:
+        reader = bigfile.read()
+        token = '^SAMPLE'
+        for i, part in enumerate(reader.split(token)[1:]):
+            with open(subfolder + "/Sample_" + str(i + 1) + extension, mode="w") as newfile:
+                newfile.write(token + part)
+    
+    # Keep or remove original file?
+    os.remove(filepath)
 
 
 # Call main()
