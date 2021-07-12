@@ -4,8 +4,10 @@
 # Import libraries
 import urllib.request
 import os
+import time
 from _datetime import datetime
 
+# TEst with --> GSE37219
 
 def banner():
     print('''
@@ -27,18 +29,21 @@ def inputMenu():
         quit_app = input('Quit? Y/N: ')
         if quit_app.lower() == 'y':
             break
-        acc = input('Enter acc component (gplxxx, gsmxxx or gsexxx): ')
-        query_type = input('Enter FULL or CUSTOM query type: ')
-        if query_type.lower() == 'full':
-            targ = 'gsm'
-            view = 'data'
-            form = 'text'
-            pullUrl(acc, targ, view, form)
-        elif query_type.lower() == 'custom':
-            targ = input('Enter targ component value (self, gsm, gpl, gse or all): ')
-            view = input('Enter view component (brief, quick, data or full): ')
-            form = input('Enter form component (text, html or xml): ')
-            pullUrl(acc, targ, view, form)
+        elif quit_app.lower() == 'n':
+
+            # Add cases to test that these inputs are not blank
+            acc = input('Enter acc component (gplxxx, gsmxxx or gsexxx): ')
+            query_type = input('Enter FULL or CUSTOM query type: ')
+            if query_type.lower() == 'full':
+                targ = 'gsm'
+                view = 'data'
+                form = 'text'
+                pullUrl(acc, targ, view, form)
+            elif query_type.lower() == 'custom':
+                targ = input('Enter targ component value (self, gsm, gpl, gse or all): ')
+                view = input('Enter view component (brief, quick, data or full): ')
+                form = input('Enter form component (text, html or xml): ')
+                pullUrl(acc, targ, view, form)
         else:
             inputMenu()
 
@@ -60,25 +65,29 @@ def pullUrl(acc, targ, view, form):
     # Path
     path = os.path.join(parent_dir, acc + '_' + date + '/')
     os.mkdir(path)
+    subfolder = os.path.join(path + targ + '/')
+    os.mkdir(subfolder)
 
     extension = '.txt'
     filename = acc + '_' + targ + '_' + view + '_' + form + '_' + date + extension
+
+    # Create subfolders to drop gsm or gpl outputs
+
     # File and path name
-    filepath = os.path.join(path, filename)
+    filepath = os.path.join(subfolder, filename)
     r = urllib.request.urlretrieve(request, filepath)
     # head -10 filename.txt to display last 10 lines
 
-    full_path = os.path.join(path, filename)
-    splitFiles(full_path)
+    # full_path = os.path.join(path, filename)
+    splitFiles(filepath)
 
 
-def splitFiles(filepath):
-
+def splitFiles(full_path):
     token = '^SAMPLE'
     chunks = []
     current_chunk = []
 
-    for line in open(filepath):
+    for line in open(full_path):
         if line.startswith(token) and current_chunk:
             chunks.append(current_chunk[:])
             current_chunk = []
