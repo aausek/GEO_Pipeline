@@ -7,7 +7,7 @@ import os
 import time
 from _datetime import datetime
 
-# TEst with --> GSE37219
+# Test with --> GSE37219 & GPL8321
 
 def banner():
     print('''
@@ -59,19 +59,27 @@ def pullUrl(acc, targ, view, form):
     request = root_url + 'acc=' + acc + '&targ=' + targ + '&view=' + view + '&form=' + form
     print(request)
 
+    iterations = 0
+
     # Parent Directory path
     parent_dir = 'output/'
     date = datetime.today().strftime('%Y-%m-%d')
+
     # Path
     path = os.path.join(parent_dir, acc + '_' + date + '/')
-    os.mkdir(path)
     subfolder = os.path.join(path + targ + '/')
+
+    # Create subfolders to drop gsm or gpl outputs
+
+    # if os.path.isdir(path) or os.path.isdir(subfolder):
+    #     os.mkdir(path + '-' + iterations)
+    #     os.mkdir(subfolder + '-' + iterations)
+    # else:
+    os.mkdir(path)
     os.mkdir(subfolder)
 
     extension = '.txt'
     filename = acc + '_' + targ + '_' + view + '_' + form + '_' + date + extension
-
-    # Create subfolders to drop gsm or gpl outputs
 
     # File and path name
     filepath = os.path.join(subfolder, filename)
