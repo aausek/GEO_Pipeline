@@ -5,7 +5,7 @@
 import urllib.request
 import os
 import time
-from _datetime import datetime
+from datetime import datetime
 
 # Test with --> GSE37219 & GPL8321
 
@@ -48,7 +48,7 @@ def inputMenu():
         else:
             inputMenu()
 
-    print('Thanks for using GEO_Pipeline. See you next time!')
+    print('\nThanks for using GEO_Pipeline. See you next time!\n')
     exit(0)
 
 
@@ -76,7 +76,7 @@ def pullUrl(acc, targ, view, form):
         # os.mkdir(path + '-' + iterations)
         os.mkdir(subfolder)
     # elif os.path.isdir(subfolder):
-        
+
     else:
         os.mkdir(path)
         os.mkdir(subfolder)
@@ -98,11 +98,20 @@ def splitFiles(filepath, subfolder, extension):
 
     with open(filepath, mode="r") as original_file:
         reader = original_file.read()
-        token = '^SAMPLE'
-        for i, part in enumerate(reader.split(token)[1:]):
-            with open(subfolder + "/Sample_" + str(i + 1) + extension, mode="w") as sample_file:
-                sample_file.write(token + part)
+        token = '^SAMPLE = '  
 
+    samples = []
+    for line in reader.splitlines():
+        if token in line:
+            sample_code = line.strip(token)
+            print(sample_code)
+            samples.append(sample_code)
+            # print(samples)    
+    for i, part in enumerate(reader.split(token)[1:]):
+                filename = subfolder + "/Sample_" + str(i) + extension
+                with open(filename, mode="w") as sample_file:
+                    sample_file.write(token + part)       
+    
     # Keep or remove original file?
     os.remove(filepath)
 
