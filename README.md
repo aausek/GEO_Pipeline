@@ -17,9 +17,10 @@
 
 - Prompt user for input to tailor NCBI query
 - Query output results in a single .txt file with all associated samples
-- Segmenting sample output into individual sample files
+- Split consolidated output into individual sample files
+- Recreate code in HiperGator Cluster
 
 ### Pending Features
 
 - Pair probe IDs with manufacturer's product data to identify gene
-- Recreating code in HiperGator Cluster
+
