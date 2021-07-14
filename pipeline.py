@@ -7,6 +7,7 @@ import os
 import time
 from datetime import datetime
 
+
 # Test with --> GSE37219 & GPL8321
 
 
@@ -95,10 +96,9 @@ def pullUrl(acc, targ, view, form):
 
 
 def splitFiles(filepath, subfolder, extension):
-
     with open(filepath, mode="r") as original_file:
         reader = original_file.read()
-        token = '^SAMPLE = '  
+        token = '^SAMPLE = '
 
     samples = []
     for line in reader.splitlines():
@@ -108,11 +108,11 @@ def splitFiles(filepath, subfolder, extension):
             samples.append(sample_code)
             # print(samples)    
     for i, part in enumerate(reader.split(token)[1:]):
-                filename = subfolder + "/Sample_" + str(i) + extension
-                with open(filename, mode="w") as sample_file:
-                    sample_file.write(token + part)       
-    
-    # Keep or remove original file?
+        filename = subfolder + "/Sample_" + str(i) + extension
+        with open(filename, mode="w") as sample_file:
+            sample_file.write(token + part)
+
+            # Keep or remove original file?
     os.remove(filepath)
 
 
