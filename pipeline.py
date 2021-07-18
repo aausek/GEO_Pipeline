@@ -107,6 +107,7 @@ def splitFiles(filepath, subfolder, extension):
             print(sample_code)
             samples.append(sample_code)
             # print(samples)    
+    # Specify sample names
     for i, part in enumerate(reader.split(token)[1:]):
         filename = subfolder + "/Sample_" + str(i) + extension
         with open(filename, mode="w") as sample_file:
@@ -115,6 +116,8 @@ def splitFiles(filepath, subfolder, extension):
             # Keep or remove original file?
     os.remove(filepath)
 
+# Function to pair ID_REF with GPL files
+# def probeMatch()
 
 # Call main()
 def main():
