@@ -100,7 +100,7 @@ def pullUrl(acc, targ, view, form):
     # full_path = os.path.join(path, filename)
     if targ == 'gsm':
         splitFiles(sample_filepath, subfolder, extension)
-        getGPL(gpl_filepath, subfolder, extension)
+        getGPL(gpl_filepath, subfolder, extension, root_url)
 
 def splitFiles(sample_filepath, subfolder, extension):
     with open(sample_filepath, mode="r") as original_file:
@@ -124,7 +124,7 @@ def splitFiles(sample_filepath, subfolder, extension):
     os.remove(sample_filepath)
 
 # Parse 'self' GPL file
-def getGPL(gpl_filepath, subfolder, extension):
+def getGPL(gpl_filepath, subfolder, extension, root_url):
     with open(gpl_filepath, mode="r") as original_file:
         reader = original_file.read()
         token = '!Series_platform_id = '
@@ -133,6 +133,17 @@ def getGPL(gpl_filepath, subfolder, extension):
             if token in line:
                 gpl_code = line.strip(token)
                 print(gpl_code)
+        
+                request = root_url + 'acc=' + gpl_code + '&targ=gpl' + '&view=full' + '&form=text'
+                gpl_full = gpl_code + '_' + extension
+
+                # File and path name
+                gpl_full_path = os.path.join(subfolder, gpl_full)
+                urllib.request.urlretrieve(request, gpl_full_path)
+                # time.sleep(10)
+        
+        original_file.close()
+        os.remove(gpl_filepath)
 
 # Function to pair ID_REF with GPL files
 # def probeMatch():
