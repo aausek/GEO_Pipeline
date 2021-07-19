@@ -8,8 +8,8 @@
     ╚██████╔╝███████╗╚██████╔╝███████╗██║     ██║██║     ███████╗███████╗██║██║ ╚████║███████╗
      ╚═════╝ ╚══════╝ ╚═════╝ ╚══════╝╚═╝     ╚═╝╚═╝     ╚══════╝╚══════╝╚═╝╚═╝  ╚═══╝╚══════╝
                                                                                           
-                                 Developed by Ana Ausek
-                                         Summer 2021
+                                        Developed by Ana Ausek
+                                                Summer 2021
 ```
 
 
@@ -24,3 +24,4 @@
 ### Pending Features
 
 - Pair probe IDs with manufacturer's product data to identify gene
+- 
