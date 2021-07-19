@@ -59,9 +59,11 @@ def pullUrl(acc, targ, view, form):
     root_url = 'https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?'
     # Construct request URL with input parameters
     request = root_url + 'acc=' + acc + '&targ=' + targ + '&view=' + view + '&form=' + form
-    print(request)
 
-    iterations = 0
+    self_targ = 'self'
+    gpl_request = root_url + 'acc=' + acc + '&targ=' + self_targ + '&view=brief' + '&form=text'
+    print(request)
+    print(gpl_request)
 
     # Parent Directory path
     parent_dir = 'output/'
@@ -72,7 +74,6 @@ def pullUrl(acc, targ, view, form):
     subfolder = os.path.join(path + targ + '/')
 
     # Create subfolders to drop gsm or gpl outputs
-
     if os.path.isdir(path):
         # os.mkdir(path + '-' + iterations)
         os.mkdir(subfolder)
@@ -83,20 +84,26 @@ def pullUrl(acc, targ, view, form):
         os.mkdir(subfolder)
 
     extension = '.txt'
-    filename = acc + '_' + targ + '_' + view + '_' + form + '_' + date + extension
+    sample_filename = acc + '_' + targ + '_' + view + '_' + form + '_' + date + extension
+
+    gpl_filename = acc + '_' + 'meta_' + date + extension
 
     # File and path name
-    filepath = os.path.join(subfolder, filename)
-    urllib.request.urlretrieve(request, filepath)
+    sample_filepath = os.path.join(subfolder, sample_filename)
+    urllib.request.urlretrieve(request, sample_filepath)
+
+    # File and path name
+    gpl_filepath = os.path.join(subfolder, gpl_filename)
+    urllib.request.urlretrieve(gpl_request, gpl_filepath)
     # head -10 filename.txt to display last 10 lines
 
     # full_path = os.path.join(path, filename)
     if targ == 'gsm':
-        splitFiles(filepath, subfolder, extension)
+        splitFiles(sample_filepath, subfolder, extension)
+        getGPL(gpl_filepath, subfolder, extension)
 
-
-def splitFiles(filepath, subfolder, extension):
-    with open(filepath, mode="r") as original_file:
+def splitFiles(sample_filepath, subfolder, extension):
+    with open(sample_filepath, mode="r") as original_file:
         reader = original_file.read()
         token = '^SAMPLE = '
 
@@ -113,11 +120,23 @@ def splitFiles(filepath, subfolder, extension):
         with open(filename, mode="w") as sample_file:
             sample_file.write(token + part)
 
-            # Keep or remove original file?
-    os.remove(filepath)
+        # Keep or remove original file?
+    os.remove(sample_filepath)
+
+# Parse 'self' GPL file
+def getGPL(gpl_filepath, subfolder, extension):
+    with open(gpl_filepath, mode="r") as original_file:
+        reader = original_file.read()
+        token = '!Series_platform_id = '
+
+        for line in reader.splitlines():
+            if token in line:
+                gpl_code = line.strip(token)
+                print(gpl_code)
 
 # Function to pair ID_REF with GPL files
-# def probeMatch()
+# def probeMatch():
+
 
 # Call main()
 def main():
