@@ -159,7 +159,7 @@ def getGPL(gpl_filepath, subfolder, extension, root_url):
 # def probeMatch():
 
 
-# Call main()
+# Driver code
 def main():
     banner()
     inputMenu()
