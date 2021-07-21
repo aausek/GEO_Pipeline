@@ -161,10 +161,11 @@ def getGPL(gpl_filepath, subfolder, extension, root_url):
 
 
 # Convert GPL file into dictionary
+# TODO - How to deal with GSM files that lead to multiple GPLs
 def convertGPL(gpl_full_path):
     with open(gpl_full_path, mode="r") as original_file:
         reader = original_file.read()
-        token = '#ID = '
+        token = ' ID '
 
     # Specify sample names
     for i, part in enumerate(reader.split(token)):
