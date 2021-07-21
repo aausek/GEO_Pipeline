@@ -29,16 +29,17 @@ def inputMenu():
         print('For full sample data download enter accession series code, and type FULL as query type. \n'
               'Type CUSTOM to specify custom query parameters.')
 
-         # Add cases to test that these inputs are not blank
+        # Add cases to test that these inputs are not blank
         acc = input('Enter acc component (gplxxx, gsmxxx or gsexxx): ')
-        query_type = input('Enter F for full or C for custom query type: ')
+        query_type = input('Enter "f" for full or "c" for custom query type: ')
         if query_type.lower() == 'f':
             targ = 'gsm'
             view = 'data'
             form = 'text'
             pullUrl(acc, targ, view, form)
         elif query_type.lower() == 'c':
-            targ = input('Enter targ component value (self, gsm, gpl, gse or all): ')
+            targ = input(
+                'Enter targ component value (self, gsm, gpl, gse or all): ')
             view = input('Enter view component (brief, quick, data or full): ')
             form = input('Enter form component (text, html or xml): ')
             pullUrl(acc, targ, view, form)
@@ -121,9 +122,10 @@ def splitFiles(sample_filepath, subfolder, extension):
             print(sample_code)
             samples.append(sample_code)
             # print(samples)
+    
     # Specify sample names
     for i, part in enumerate(reader.split(token)[1:]):
-        filename = subfolder + "/Sample_" + str(i) + extension
+        filename = subfolder + "/Sample_" + samples[i] + extension
         with open(filename, mode="w") as sample_file:
             sample_file.write(token + part)
 
