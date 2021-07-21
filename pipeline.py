@@ -6,6 +6,7 @@ import urllib.request
 import os
 import time
 from datetime import datetime
+import csv
 
 
 # Test with --> GSE37219 & GPL8321
@@ -122,7 +123,7 @@ def splitFiles(sample_filepath, subfolder, extension):
             print(sample_code)
             samples.append(sample_code)
             # print(samples)
-    
+
     # Specify sample names
     for i, part in enumerate(reader.split(token)[1:]):
         filename = subfolder + "/Sample_" + samples[i] + extension
@@ -153,9 +154,25 @@ def getGPL(gpl_filepath, subfolder, extension, root_url):
                 gpl_full_path = os.path.join(subfolder, gpl_full)
                 urllib.request.urlretrieve(request, gpl_full_path)
                 # time.sleep(10)
+                convertGPL(gpl_full_path)
 
         original_file.close()
         os.remove(gpl_filepath)
+
+
+# Convert GPL file into dictionary
+def convertGPL(gpl_full_path):
+    with open(gpl_full_path, mode="r") as original_file:
+        reader = original_file.read()
+        token = '#ID = '
+
+    # Specify sample names
+    for i, part in enumerate(reader.split(token)):
+        filename = gpl_full_path
+        with open(filename, mode="w") as file:
+            file.write(token + part)
+    
+    # os.remove(gpl_full_path)            
 
 # Function to pair ID_REF with GPL files
 # def probeMatch():
