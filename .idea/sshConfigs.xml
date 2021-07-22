@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SshConfigs">
+    <configs>
+      <sshConfig authType="PASSWORD" host="hpg.rc.ufl.edu" id="abed86ef-a486-46a0-86af-aff11df45775" port="22" nameFormat="DESCRIPTIVE" username="aausek" />
+    </configs>
+  </component>
+</project>

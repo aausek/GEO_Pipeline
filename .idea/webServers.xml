@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="86a74e66-2ed1-4348-9434-cd4e6b3a7edd" name="hiper">
+        <fileTransfer accessType="SFTP" host="hpg.rc.ufl.edu" port="22" sshConfigId="abed86ef-a486-46a0-86af-aff11df45775" sshConfig="aausek@hpg.rc.ufl.edu:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
