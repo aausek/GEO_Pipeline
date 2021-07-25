@@ -1,0 +1,3 @@
+[console_scripts]
+pipeline = src.pipeline:main
+

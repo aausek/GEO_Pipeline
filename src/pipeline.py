@@ -73,7 +73,9 @@ def pullUrl(acc, targ, view, form):
     print(gpl_request)
 
     # Parent Directory path
-    parent_dir = 'output/'
+    os.getcwd()
+    os.mkdir('output')
+    parent_dir = './output/'
     date = datetime.today().strftime('%Y-%m-%d')
 
     # Path
