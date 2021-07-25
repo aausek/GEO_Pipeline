@@ -30,3 +30,4 @@
 - In local directory edit `pipeline.py` and `setup.py` with new package version
 - To create packaging files run `python3 setup.py sdist bdist_wheel` and `twine upload dist/*`
 - New package will be uploaded to [PyPi](https://pypi.org/project/geo-pipeline/)
+- To install run `pip install geo-pipeline` and `pipeline` to launch
