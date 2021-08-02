@@ -30,6 +30,7 @@ Custom NCBI GEO data download pipeline to assist in the analysis of GSE sample f
 ### Links
 - [Repository](https://github.com/aausek/GEO_Pipeline)
 - [PIP Package](https://pypi.org/project/geo-pipeline/)
+- [Overleaf Research Paper](https://www.overleaf.com/project/60df15e58e1c91216ea51895)
 
 ### Completed Features
 
