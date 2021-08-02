@@ -25,4 +25,3 @@
 ### Pending Features
 
 - Pair probe IDs with manufacturer's product data to identify gene
-- 
