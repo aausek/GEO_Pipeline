@@ -140,8 +140,7 @@ def splitFiles(sample_filepath, subfolder, extension):
         # Keep or remove original file?
     os.remove(sample_filepath)
 
-# Parse 'self' GPL file
-
+# Download GPL file
 def getGPL(gpl_filepath, subfolder, extension, root_url):
     with open(gpl_filepath, mode="r") as original_file:
         reader = original_file.read()
@@ -184,10 +183,13 @@ def convertGPL(gpl_full_path):
 
 
 # Function to pair ID_REF with GPL files
+# Parse 'self' GPL file
+# TODO - Remove this function?
 def probeMatch():
 
     # text will be stored
     dict1 = {}
+    
     filename = 'Sample_GSM913972.txt'
     subfolder = './output/GSE37219_2021-08-01/gsm/'
     # fields in the sample file 
