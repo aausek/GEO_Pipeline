@@ -12,6 +12,9 @@
                                                 Summer 2021
 ```
 
+<p align="center">
+  <img src="gif.gif"/>
+</p>
 
 ### Completed Features
 

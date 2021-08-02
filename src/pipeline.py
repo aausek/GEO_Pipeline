@@ -7,6 +7,8 @@ import os
 import time
 from datetime import datetime
 import csv
+import json
+import pandas as pd
 
 
 # Test with --> GSE37219 & GPL8321
@@ -31,7 +33,7 @@ def inputMenu():
               'Type CUSTOM to specify custom query parameters.')
 
         # Add cases to test that these inputs are not blank
-        acc = input('Enter acc component (gplxxx, gsmxxx or gsexxx): ')
+        acc = input('\nEnter acc component (gplxxx, gsmxxx or gsexxx): ')
         query_type = input('Enter "f" for full or "c" for custom query type: ')
         if query_type.lower() == 'f':
             targ = 'gsm'
@@ -45,7 +47,7 @@ def inputMenu():
             form = input('Enter form component (text, html or xml): ')
             pullUrl(acc, targ, view, form)
 
-        quit_app = input('Quit? Y/N: ')
+        quit_app = input('\nQuit? Y/N: ')
 
         if quit_app.lower() == 'y':
             break
@@ -54,6 +56,7 @@ def inputMenu():
         else:
             inputMenu()
 
+    print('\nFor parameters clarification visit https://www.ncbi.nlm.nih.gov/geo/info/download.html')
     print('\nThanks for using GEO_Pipeline. See you next time!\n')
     exit(0)
 
@@ -69,8 +72,8 @@ def pullUrl(acc, targ, view, form):
     self_targ = 'self'
     gpl_request = root_url + 'acc=' + acc + '&targ=' + \
         self_targ + '&view=brief' + '&form=text'
-    print(request)
-    print(gpl_request)
+    print('\n' + request)
+    print(gpl_request + '\n')
 
     # Parent Directory path
     os.getcwd()
@@ -119,6 +122,7 @@ def splitFiles(sample_filepath, subfolder, extension):
         token = '^SAMPLE = '
 
     samples = []
+    print('Samples:')
     for line in reader.splitlines():
         if token in line:
             sample_code = line.strip(token)
@@ -128,15 +132,15 @@ def splitFiles(sample_filepath, subfolder, extension):
 
     # Specify sample names
     for i, part in enumerate(reader.split(token)[1:]):
-        filename = subfolder + "/Sample_" + samples[i] + extension
+        fname = "Sample_" + samples[i]
+        filename = subfolder + fname + extension
         with open(filename, mode="w") as sample_file:
             sample_file.write(token + part)
-
+        #probeMatch(subfolder, fname)
         # Keep or remove original file?
     os.remove(sample_filepath)
 
 # Parse 'self' GPL file
-
 
 def getGPL(gpl_filepath, subfolder, extension, root_url):
     with open(gpl_filepath, mode="r") as original_file:
@@ -148,18 +152,18 @@ def getGPL(gpl_filepath, subfolder, extension, root_url):
                 gpl_code = line.strip(token)
                 print(gpl_code)
 
-                request = root_url + 'acc=' + gpl_code + \
+                request_txt = root_url + 'acc=' + gpl_code + \
                     '&targ=gpl' + '&view=full' + '&form=text'
                 gpl_full = gpl_code + extension
 
                 # File and path name
                 gpl_full_path = os.path.join(subfolder, gpl_full)
-                urllib.request.urlretrieve(request, gpl_full_path)
+                urllib.request.urlretrieve(request_txt, gpl_full_path)
                 # time.sleep(10)
-                convertGPL(gpl_full_path)
+                #convertGPL(gpl_full_path)
 
         original_file.close()
-        os.remove(gpl_filepath)
+        # os.remove(gpl_filepath)
 
 
 # Convert GPL file into dictionary
@@ -174,18 +178,58 @@ def convertGPL(gpl_full_path):
         filename = gpl_full_path
         with open(filename, mode="w") as file:
             file.write(token + part)
-    
-    # os.remove(gpl_full_path)            
+
+    os.remove(gpl_full_path)
+    probeMatch()
+
 
 # Function to pair ID_REF with GPL files
-# def probeMatch():
+def probeMatch():
+
+    # text will be stored
+    dict1 = {}
+    filename = 'Sample_GSM913972.txt'
+    subfolder = './output/GSE37219_2021-08-01/gsm/'
+    # fields in the sample file 
+    fields =['ID_REF', 'VALUE',	'ABS_CALL']
+    # creating dictionary
+    with open(subfolder + filename) as fh:
+        # lines = fh.readlines()
+        # lines = lines[:-1]
+        l = 1
+        for _ in range(7):
+            next(fh)
+        for line in fh:
+            # reads each line and trims of extra the spaces
+            # and gives only the valid words
+            description = list( line.strip().split(None, 3))
+            print(description)
+            
+            sno ='ID_' + str(l)
+            # loop variable
+            i = 0
+            # intermediate dictionary
+            dict2 = {}
+            while i < len(fields):
+                # creating dictionary for each record
+                dict2 [fields[i]] = description[i]
+                i = i + 1     
+        # appending the record of each record to
+        # the main dictionary
+        dict1[sno] = dict2
+        l = l + 1
+
+    # creating json file
+    # the JSON file is named as test1
+    out_file = open(subfolder + "test1.json", "w")
+    json.dump(dict1, out_file, indent = 3)
+    out_file.close()
 
 
 # Driver code
 def main():
     banner()
     inputMenu()
-
 
 # Invoke main
 if __name__ == '__main__':
