@@ -12,6 +12,7 @@ import json
 
 
 # Test with --> GSE37219 & GPL8321
+# Test with --> GSE36001 & GPL6102
 
 
 def banner():
