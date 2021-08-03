@@ -152,7 +152,7 @@ def getGPL(gpl_filepath, subfolder, extension, root_url):
                 print(gpl_code)
 
                 request_txt = root_url + 'acc=' + gpl_code + \
-                    '&targ=gpl' + '&view=full' + '&form=text'
+                    '&targ=gpl' + '&view=data' + '&form=text'
                 gpl_full = gpl_code + extension
 
                 # File and path name

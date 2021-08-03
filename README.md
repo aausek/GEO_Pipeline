@@ -21,9 +21,11 @@
 Custom NCBI GEO data download pipeline to assist in the analysis of GSE sample files.
 
 ### Installation Options
-- To install GEO_Pipeline use `pip install geo-pipeline` then run `pipeline` to launch
+- To install GEO_Pipeline in current directory use `pip install geo-pipeline -t .` 
+- `cd src/` and run `python3 pipeline.py` to launch
+- `output/` files will be deposited in `cd src/`
 
-- For a local install, `git clone` this repository
+- Alternatively, `git clone` this repository
 - Execute `python3 src/pipeline.py`
 - `cd output/` for sample and metadata output files
 
