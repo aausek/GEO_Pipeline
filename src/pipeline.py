@@ -113,7 +113,7 @@ def pullUrl(acc, targ, view, form):
     # full_path = os.path.join(path, filename)
     if targ == 'gsm':
         splitFiles(sample_filepath, subfolder, extension)
-        getGPL(gpl_filepath, subfolder, extension, root_url)
+        #getGPL(gpl_filepath, subfolder, extension, root_url)
 
 
 def splitFiles(sample_filepath, subfolder, extension):
@@ -133,13 +133,23 @@ def splitFiles(sample_filepath, subfolder, extension):
     # Specify sample names
     for i, part in enumerate(reader.split(token)[1:]):
         fname = "Sample_" + samples[i]
-        filename = subfolder + fname + extension
-        with open(filename, mode="w") as sample_file:
+        filename_ = subfolder + fname + '_' + extension
+        filename_final = subfolder + fname + extension
+        
+        with open(filename_, mode="w") as sample_file:
             sample_file.write(token + part)
-        #probeMatch(subfolder, fname)
+        
+        with open(filename_, "r") as file_input:
+            with open(filename_final, "w") as file_output: 
+                for line in file_input:
+                    if line.strip("\n") != "!sample_table_end":
+                        file_output.write(line)
+        os.remove(filename_)
+        probeMatch(subfolder, filename_final, samples[i])
         # Keep or remove original file?
     os.remove(sample_filepath)
-
+    
+    
 # Download GPL file
 def getGPL(gpl_filepath, subfolder, extension, root_url):
     with open(gpl_filepath, mode="r") as original_file:
@@ -162,7 +172,8 @@ def getGPL(gpl_filepath, subfolder, extension, root_url):
                 #convertGPL(gpl_full_path)
 
         original_file.close()
-        # os.remove(gpl_filepath)
+        os.remove(gpl_filepath)
+        probeMatch(subfolder)
 
 
 # Convert GPL file into dictionary
@@ -185,26 +196,27 @@ def convertGPL(gpl_full_path):
 # Function to pair ID_REF with GPL files
 # Parse 'self' GPL file
 # TODO - Remove this function?
-def probeMatch():
+def probeMatch(subfolder, filename_final, sample_code):
 
     # text will be stored
     dict1 = {}
     
     filename = 'Sample_GSM913972.txt'
-    subfolder = './output/GSE37219_2021-08-01/gsm/'
+    #subfolder = './output/GSE37219_2021-08-02/gsm/'
     # fields in the sample file 
     fields =['ID_REF', 'VALUE',	'ABS_CALL']
     # creating dictionary
-    with open(subfolder + filename) as fh:
+    with open(filename_final) as fh:
         # lines = fh.readlines()
         # lines = lines[:-1]
         l = 1
-        for _ in range(7):
+        for _ in range(6):
             next(fh)
         for line in fh:
+            
             # reads each line and trims of extra the spaces
             # and gives only the valid words
-            description = list( line.strip().split(None, 3))
+            description = list( line.strip().split(None, 10))
             print(description)
             
             sno ='ID_' + str(l)
@@ -215,15 +227,16 @@ def probeMatch():
             while i < len(fields):
                 # creating dictionary for each record
                 dict2 [fields[i]] = description[i]
-                i = i + 1     
-        # appending the record of each record to
-        # the main dictionary
-        dict1[sno] = dict2
-        l = l + 1
+                i = i + 1
+            # appending the record of each record to
+            # the main dictionary
+            dict1[sno] = dict2
+            l = l + 1
 
     # creating json file
     # the JSON file is named as test1
-    out_file = open(subfolder + "test1.json", "w")
+    json_file = sample_code + ".json"
+    out_file = open(subfolder + json_file, "w")
     json.dump(dict1, out_file, indent = 3)
     out_file.close()
 
