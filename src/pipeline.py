@@ -204,7 +204,7 @@ def probeMatch(subfolder, filename_final, sample_code):
     filename = 'Sample_GSM913972.txt'
     #subfolder = './output/GSE37219_2021-08-02/gsm/'
     # fields in the sample file 
-    fields =['ID_REF', 'VALUE',	'ABS_CALL']
+    fields =['ID_REF', 'VALUE',	'P-VAL']
     # creating dictionary
     with open(filename_final) as fh:
         # lines = fh.readlines()
@@ -216,7 +216,7 @@ def probeMatch(subfolder, filename_final, sample_code):
             
             # reads each line and trims of extra the spaces
             # and gives only the valid words
-            description = list( line.strip().split(None, 10))
+            description = list( line.strip().split(None, 3))
             print(description)
             
             sno ='ID_' + str(l)
