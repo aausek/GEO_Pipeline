@@ -39,7 +39,8 @@ Custom NCBI GEO data download pipeline to assist in the analysis of GSE sample f
 - Prompt user for input to tailor NCBI query
 - Query output results in a single .txt file with all associated samples
 - Split consolidated output into individual sample files
-- Recreate code in HiperGator cluster
+- Download associated platform (GPL) files
+- Convert all .txt data into JSON files
 - Identifying series platform ID for probe matching
 
 ### Pending Features
