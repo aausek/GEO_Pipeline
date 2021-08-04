@@ -114,7 +114,7 @@ def pullUrl(acc, targ, view, form):
 
     # full_path = os.path.join(path, filename)
     if targ == 'gsm':
-        #splitFiles(sample_filepath, subfolder, extension)
+        splitFiles(sample_filepath, subfolder, extension)
         getGPL(gpl_filepath, subfolder, extension, root_url)
 
 
