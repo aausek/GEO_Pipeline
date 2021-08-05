@@ -49,5 +49,3 @@ Custom NCBI GEO data download pipeline to assist in the analysis of GSE sample f
 ### Pending Features
 
 - Pair probe IDs with manufacturer's product data to identify gene
-
-### 
