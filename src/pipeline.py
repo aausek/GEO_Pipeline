@@ -10,10 +10,11 @@ import csv
 import json
 # import pandas as pd
 
-# PRIMARY TESTS:
+# CODE is optimized to download GSM and GPL files for GSE36001
 # Test with --> GSE36001 & GPL6102 - HUMAN
-# Test with --> GSE87649 & GPL16540 - CANINE
 
+# Other tests requiring code refactoring:
+# Test with --> GSE87649 & GPL16540 - CANINE
 # Test with --> GSE37219 & GPL8321 - MOUSE
 
 def banner():
@@ -49,7 +50,7 @@ def inputMenu():
             form = input('Enter form component (text, html or xml): ')
             pullUrl(acc, targ, view, form)
 
-        quit_app = input('\nQuit? Y/N: ')
+        quit_app = input('\nQuit?(Y/N): ')
 
         if quit_app.lower() == 'y':
             break
@@ -74,8 +75,8 @@ def pullUrl(acc, targ, view, form):
     self_targ = 'self'
     gpl_request = root_url + 'acc=' + acc + '&targ=' + \
         self_targ + '&view=brief' + '&form=text'
-    print('\n' + request)
-    print(gpl_request + '\n')
+    # print('\n' + request)
+    # print(gpl_request + '\n')
 
     # Parent Directory path
     os.getcwd()
@@ -124,13 +125,15 @@ def splitFiles(sample_filepath, subfolder, extension):
         token = '^SAMPLE = '
 
     samples = []
-    print('Samples:')
+    print('\nSamples:')
     for line in reader.splitlines():
         if token in line:
             sample_code = line.strip(token)
             print(sample_code)
+            
             samples.append(sample_code)
             # print(samples)
+    print("\n")
 
     # Specify sample names
     for i, part in enumerate(reader.split(token)[1:]):
@@ -158,25 +161,26 @@ def getGPL(gpl_filepath, subfolder, extension, root_url):
         reader = original_file.read()
         token = '!Series_platform_id = '
 
+        print('Platform file: ')
         for line in reader.splitlines():
             if token in line:
                 gpl_code = line.strip(token)
                 print(gpl_code)
-                
                 request_txt = root_url + 'acc=' + gpl_code + \
                     '&targ=gpl' + '&view=data' + '&form=text'
                 gpl_full = gpl_code + extension
-                print(request_txt)
+                #print(request_txt)
 
                 # File and path name
                 gpl_full_path = os.path.join(subfolder, gpl_full)
                 urllib.request.urlretrieve(request_txt, gpl_full_path)
                 # time.sleep(10)
-                convertGPL(gpl_full_path, gpl_code, subfolder, extension)
+                #convertGPL(gpl_full_path, gpl_code, subfolder, extension)
                 #GplParser(gpl_full_path, gpl_code)
-            
+
         original_file.close()
         os.remove(gpl_filepath)
+
 
 
 # Convert GPL file into dictionary
